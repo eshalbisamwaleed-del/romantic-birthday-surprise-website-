@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:22px;
+  font-family:Georgia,serif;text-align:center;color:white;
+  background:linear-gradient(135deg,#240018,#741b47,#e66b91);
+}
+.card{
+  width:100%;max-width:440px;padding:30px 22px;
+  border:1px solid #ffffff55;border-radius:25px;
+  background:#ffffff18;backdrop-filter:blur(8px);
+  box-shadow:0 10px 40px #0003;
+}
+h1{font-size:2.1rem;color:#ffe3ed}
+p{line-height:1.8}
+input,button{
+  width:100%;padding:13px;margin-top:12px;
+  border:0;border-radius:12px;font-size:16px;
+}
+button{background:#ffe3ed;color:#70153f;font-weight:bold}
+#surprise{display:none}
+.heart{font-size:42px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.2)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <div id="lock">
+    <h1>A Special Surprise</h1>
+    <p>Someone has prepared something special for you 💌</p>
+    <input id="pass" type="password" placeholder="Enter the secret password">
+    <button onclick="unlock()">Open My Surprise 💗</button>
+    <p id="error"></p>
+  </div>
+
+  <div id="surprise">
+    <h1>Happy Birthday, My Love! 🎂</h1>
+    <p>Today is special because someone so precious was born.</p>
+    <p>You are my happiness, my peace, and one of the most beautiful parts of my life.</p>
+    <p>May your life always be filled with love, happiness, and countless beautiful moments.</p>
+    <p>❤️ I choose you, today and always. ❤️</p>
+    <button onclick="playSong()">Play Birthday Song 🎵</button>
+    <audio id="song" loop>
+      <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+    <p>Made with love, just for you 💋</p>
+  </div>
+</div>
+<script>
+function unlock(){
+  if(document.getElementById('pass').value==='0109'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('surprise').style.display='block';
+    document.body.style.background=
+      'linear-gradient(135deg,#4b123d,#b52e69,#f59ab8)';
+  }else{
+    document.getElementById('error').textContent=
+      'Incorrect password. Please try again ❤️';
+  }
+}
+function playSong(){
+  document.getElementById('song').play()
+    .catch(()=>alert('Please add your birthday-song.mp3 file first.'));
+}
+</script>
+</body>
+</html>
